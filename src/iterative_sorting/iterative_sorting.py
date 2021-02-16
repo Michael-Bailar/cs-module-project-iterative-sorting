@@ -1,3 +1,25 @@
+def insertion_sort(arr):
+    # seperate the first element
+    #think of it as sorted already
+    # for all unsorted items
+    for i in range(1, len(arr)):
+        # mark the current item we are considering
+        current = arr[i]
+        # look left until we find the proper
+        # place to insert the current item
+        j = i
+        while j > 0 and current < arr[j-1]:
+        # as we are "looking left", we need to
+        # shift items to the right 
+            arr[j] =  arr[j-1]
+            j -= 1
+            # when item to the left is less than or
+            # equal to current
+            # or there are no items to the left
+            # insert item 
+        arr[j] = current
+    return arr
+
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
@@ -7,17 +29,24 @@ def selection_sort(arr):
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-
+        for j in range(i + 1, (len(arr))):
+            if arr[j]< arr[smallest_index]:
+                smallest_index = j
 
         # TO-DO: swap
         # Your code here
+        (arr[i], arr[smallest_index]) = (arr[smallest_index], arr[i])
 
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+    for i in range(len(arr)):
+        for j in range(0, len(arr) - i - 1):
+            if arr[j] > arr[j + 1]:
+                (arr[j], arr[j + 1]) = (arr[j + 1], arr[j])
+        
 
 
     return arr
